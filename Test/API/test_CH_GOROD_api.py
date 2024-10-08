@@ -6,7 +6,8 @@ base_url = "https://web-gate.chitai-gorod.ru/api"
 headers = { 
 
         'content-type': 'application/json',
-        'authorization': "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MjgyMDMwNTAsImlhdCI6MTcyODAzNTA1MCwiaXNzIjoiL2FwaS92MS9hdXRoL2Fub255bW91cyIsInN1YiI6IjM5YjRlYWI0NTg0NmFjYWRhYTRlYmFmMTI1MzgyYWU0MDY4YTQ3NDAwYjgwMjI5YjA0Y2QyODY0YjNiNTk5MWUiLCJ0eXBlIjoxMH0.XtUnVQpSKufy_5icqiAB6bBAD2vsIwxGMXUo-5golE8"
+        'authorization': "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3VzZXItcmlnaHQiLCJzdWIiOjIxMDc3MDk5LCJpYXQiOjE3MjgzOTM1MzQsImV4cCI6MTcyODM5NzEzNCwidHlwZSI6MjB9.jDRnkIoiGA_VBm35lqAHVVTv26nIkrnlaNtxwXjwVlI"
+
 }
 
 # Найти книгу по названию
@@ -26,14 +27,14 @@ def test_eng():
 # Найти книгу по ID
 
 def test_id():
-    resp = requests.get(base_url+'/products/slug/master-i-margarita-3018590', headers=headers)
+    resp = requests.get(base_url+'/v1/products/slug/master-i-margarita-3018590', headers=headers)
     assert resp.status_code == 200
     assert resp.headers["Content-Type"] == "application/json"
 
 # Получить список магазинов по городам
 
 def test_shop():
-    resp = requests.get(base_url+'/shops-cities', headers=headers)
+    resp = requests.get(base_url+'/v1/shops-cities', headers=headers)
     assert resp.status_code == 200
     assert resp.headers["Content-Type"] == "application/json"
 # тест на пустой поиск
